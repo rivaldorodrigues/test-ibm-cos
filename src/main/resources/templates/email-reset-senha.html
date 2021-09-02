@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt_BR">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:text="${titulo}">Redefinição de Senha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body style="margin:0; padding:10px 0 0 0;" bgcolor="#F8F8F8">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#eaeaef">
+    <tbody>
+    <tr>
+        <td>
+            <table align="center" border="0" cellpadding="0" cellspacing="0"
+                   style="border-collapse:collapse;font-family:'Gotham Rounded Medium',sans-serif;width:100%;max-width:600px">
+                <tbody>
+                <tr>
+                    <td>
+                        <table align="center" border="0" cellpadding="0" cellspacing="0"
+                               style="margin-left:10px;margin-right:10px">
+                            <tbody>
+                            <tr>
+                                <td align="center"
+                                    style="padding:20px 20px 20px 20px;font-family:'Gotham Rounded Medium',sans-serif">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td bgcolor="#EAEAEF"
+                                    style="padding:30px 40px 20px 40px;font-family:'Gotham Rounded Medium',sans-serif"
+                                    align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr style="margin:0;padding:0">
+                                            <td align="center" style="width: 189px;height: 170px;text-align: center;margin:0px;border-width:0px">
+                                                <img src="cid:logo" style="width: 240px;height: 80px" alt="Logo" />
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td bgcolor="#ffffff" align="center"
+                                    style="padding:40px 40px 0px 40px;margin:0px;border-top-right-radius:5px;border-top-left-radius:5px;font-family:'Gotham Rounded Medium',sans-serif">
+                                    <h1 style="padding:0px;color:#274060;margin:0;font-size:21px" th:text="${titulo}">
+                                        Redefinição de Senha
+                                    </h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#ffffff"
+                                    style="padding:30px 40px 60px 40px;font-family:'Gotham Rounded Medium',sans-serif;border-bottom-right-radius:5px;border-bottom-left-radius:5px">
+                                    <p style="padding:0px;color:#3FB4E7;margin:0;font-size:16px;text-align:justify">
+                                        Olá, <span th:text="${nome}">usuário</span>!
+                                        <br/>
+                                        <br/>
+                                        Você solicitou uma redefinição de senha através do nossso sistema.
+                                        <br/>
+                                        <br/>
+                                        Para completar o procedimendo de mudança de senha digite o código abaixo:
+                                    </p>
+
+                                    <div style="text-align: center;margin-top: 16px;margin-bottom: 16px;">
+                                        <font style="color:#3DDBD7;font-weight:bold;font-size:24px" th:text="${codigo}">Código</font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#ffffff" align="center"
+                                    style="padding:10px 10px 0px 10px;margin:0px;border-top-right-radius:5px;border-top-left-radius:5px;font-family:'Gotham Rounded Medium',sans-serif">
+                                    <p style="padding:0px;color:#5d666f;margin:0;font-size:10px;">
+                                        Caso você não tenha feito essa solicitação, desconsidere esse email.
+                                        <br/> <br/>
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

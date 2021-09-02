@@ -1,0 +1,143 @@
+databaseChangeLog:
+- changeSet:
+    id: 1-1
+    author: Rivaldo
+    changes:
+    - createSequence:
+        sequenceName: perfil_seq
+- changeSet:
+    id: 1-2
+    author: Rivaldo
+    changes:
+    - createSequence:
+        sequenceName: usuario_seq
+- changeSet:
+    id: 1-3
+    author: Rivaldo
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: perfil_pkey
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: VARCHAR(255)
+        tableName: perfil
+- changeSet:
+    id: 1-4
+    author: Rivaldo
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: perfil_usuario_pkey
+            name: usuario_id
+            type: BIGINT
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: perfil_usuario_pkey
+            name: perfil_id
+            type: BIGINT
+        tableName: perfil_usuario
+- changeSet:
+    id: 1-5
+    author: Rivaldo
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: usuario_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: email
+            type: VARCHAR(254)
+        - column:
+            name: nome
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: login
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: senha
+            type: VARCHAR(60)
+        tableName: usuario
+- changeSet:
+    id: 1-6
+    author: Rivaldo
+    changes:
+    - addUniqueConstraint:
+        columnNames: email
+        constraintName: usuario_email_uq
+        tableName: usuario
+- changeSet:
+    id: 1-7
+    author: Rivaldo
+    changes:
+    - addUniqueConstraint:
+        columnNames: login
+        constraintName: usuario_login_uq
+        tableName: usuario
+- changeSet:
+    id: 1-8
+    author: Rivaldo
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: perfil_id
+        baseTableName: perfil_usuario
+        constraintName: perfil_usuario_perfil_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: perfil
+        validate: true
+- changeSet:
+    id: 1-9
+    author: Rivaldo
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usuario_id
+        baseTableName: perfil_usuario
+        constraintName: perfil_usuario_usuario_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: usuario
+        validate: true
+- changeSet:
+    id: 1-10
+    author: Rivaldo
+    changes:
+    - sql:
+        comment: Criação do schema de auditoria
+        dbms: h2, postgresql
+        endDelimiter: ;
+        splitStatements: true
+        sql: CREATE SCHEMA auditoria
+        stripComments: true
+- changeSet:
+    id: 1-dados
+    author: Rivaldo
+    changes:
+    - sqlFile:
+        dbms: h2, postgresql
+        path: db/changelog/scripts/d01-dados-iniciais.sql

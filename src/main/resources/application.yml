@@ -1,0 +1,40 @@
+logging:
+  level:
+    ROOT: INFO
+
+info:
+  app:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    encoding: @project.build.sourceEncoding@
+    java.version: @java.version@
+
+spring:
+  application:
+    name: starter-api
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+server:
+  port: 8090
+  servlet:
+    context-path: /starter-api
+
+jwt:
+  token:
+    secret: Mysecret
+    refresh: 15 # Em minutos
+    expiration:
+      web: 60 # Em minutos
+      app: 21600 # Em minutos
+      default: 60 # Em minutos
